@@ -3,6 +3,7 @@ using PeNet;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Net.Sockets;
+using System.Text;
 
 namespace LudariMS
 {
@@ -140,7 +141,7 @@ namespace LudariMS
             config["default"]["host"] = selectedIp;
             config["default"]["port"] = selectedPort;
 
-            parser.WriteFile($"{ClientPath}/maple2.ini", config);
+            parser.WriteFile($"{ClientPath}/maple2.ini", config, new UTF8Encoding(false));
 
             Process.Start($"{ClientPath}/MapleStory2.exe");
         }
